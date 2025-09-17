@@ -1,3 +1,4 @@
+import 'package:bloc_consumer/pages/inicial_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../bloc/login_bloc.dart';
@@ -19,11 +20,14 @@ class FailureView extends StatelessWidget {
             Text(state.message, style: const TextStyle(color: Colors.red)),
             const SizedBox(height: 20),
             ElevatedButton(
-              onPressed: () {
-                Navigator.of(context).pop(); // vuelve a inicial
-              },
-              child: const Text("Reintentar"),
-            ),
+            onPressed: () {
+              Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(builder: (_) => const InicialView()),
+              );
+            },
+            child: const Text("Reintentar"),
+          ),
           ],
         ),
       ),

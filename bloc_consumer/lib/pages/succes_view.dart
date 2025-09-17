@@ -8,7 +8,12 @@ class SuccessView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (_) => TextsCubit(),
+      create: (context) => TextsCubit()
+        ..updateTexts(
+          "Texto 1",
+          "Texto 2",
+          "Texto 3",
+        ),
       child: Scaffold(
         appBar: AppBar(title: const Text("Éxito")),
         body: BlocBuilder<TextsCubit, TextsState>(
@@ -16,22 +21,14 @@ class SuccessView extends StatelessWidget {
             return Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Image.network("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ_c0BoyKReS6MZr2rWYLb3e9a26P3vsIGaYA&s", height: 120),
+                Image.network(
+                  "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ_c0BoyKReS6MZr2rWYLb3e9a26P3vsIGaYA&s",
+                  height: 120,
+                ),
                 const SizedBox(height: 20),
                 Text(state.text1, style: const TextStyle(fontSize: 20)),
                 Text(state.text2, style: const TextStyle(fontSize: 20)),
                 Text(state.text3, style: const TextStyle(fontSize: 20)),
-                const SizedBox(height: 30),
-                ElevatedButton(
-                  onPressed: () {
-                    context.read<TextsCubit>().updateTexts(
-                      "Nuevo texto 1",
-                      "Nuevo texto 2",
-                      "Nuevo texto 3",
-                    );
-                  },
-                  child: const Text("Cambiar textos"),
-                )
               ],
             );
           },

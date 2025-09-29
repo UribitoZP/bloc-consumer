@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../bloc/login_bloc.dart';
-import '../bloc/login_event.dart';
+
 
 class InicialView extends StatefulWidget {
   const InicialView({super.key});

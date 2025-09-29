@@ -2,7 +2,6 @@ import 'package:bloc_consumer/pages/inicial_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../bloc/login_bloc.dart';
-import '../bloc/login_state.dart';
 
 class FailureView extends StatelessWidget {
   const FailureView({super.key});
@@ -23,7 +22,7 @@ class FailureView extends StatelessWidget {
             onPressed: () {
               Navigator.pushReplacement(
                 context,
-                MaterialPageRoute(builder: (_) => const InicialView()),
+                MaterialPageRoute(builder: (context) => const InicialView()),
               );
             },
             child: const Text("Reintentar"),

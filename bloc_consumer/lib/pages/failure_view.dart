@@ -22,7 +22,7 @@ class FailureView extends StatelessWidget {
             onPressed: () {
               Navigator.pushReplacement(
                 context,
-                MaterialPageRoute(builder: (context) => const InicialView()),
+                MaterialPageRoute(builder: (context) => const LoginView()),
               );
             },
             child: const Text("Reintentar"),

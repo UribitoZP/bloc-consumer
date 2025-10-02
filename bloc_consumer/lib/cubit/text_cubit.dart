@@ -12,7 +12,7 @@ class TextCubit extends Cubit<TextState> {
     emit(TextLoading());
     try {
       final response = await dio.post(
-        "https://mocki.io/v1/43abbc03-5e35-4f2c-bc24-a7dcccea9911",
+        "https://mocki.io/v1/18372f00-41b9-4c51-9a64-bbb577ff54f8",
         data: {
           "username": username,
           "password": password,

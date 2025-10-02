@@ -4,7 +4,7 @@ abstract class TextState {}
 
 class TextInitial extends TextState {}
 
-class TextLoading extends TextState  {}
+class TextLoading extends TextState {}
 
 class TextSuccess extends TextState {
   final String username;

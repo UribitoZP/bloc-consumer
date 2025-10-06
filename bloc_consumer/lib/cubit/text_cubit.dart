@@ -11,12 +11,8 @@ class TextCubit extends Cubit<TextState> {
   Future<void> login(String username, String password) async {
     emit(TextLoading());
     try {
-      final response = await dio.post(
+      final response = await dio.get(
         "https://mocki.io/v1/18372f00-41b9-4c51-9a64-bbb577ff54f8",
-        data: {
-          "username": username,
-          "password": password,
-        },
       );
 
       final data = response.data;

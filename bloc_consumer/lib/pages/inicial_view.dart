@@ -11,40 +11,40 @@ class LoginView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (_) => LoginBloc(),
+      create: (contex) => LoginBloc(),
       child: Scaffold(
         appBar: AppBar(title: const Text("Login")),
         body: BlocConsumer<LoginBloc, LoginState>(
-  listener: (context, state) {
-    if (state is LoginSuccess) {
-      Navigator.push(
-        context,
-        MaterialPageRoute(
-          builder: (_) => SuccessView(
-            username: state.username,
-            password: state.phone, // 👈 pasamos la password para la petición
-          ),
+          listener: (context, state) {
+            if (state is LoginSuccess) {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (contex) => SuccessView(
+                    username: state.username,
+                    email: state.email,
+                    phone: state.phone,
+                  ),
+                ),
+              );
+            }
+          },
+          builder: (context, state) {
+            if (state is LoginInitial) {
+              return buildForm(context);
+            } else if (state is LoginLoading) {
+              return const LoadingView();
+            } else if (state is LoginFailure) {
+              return FailureView();
+            }
+            return const SizedBox.shrink();
+          },
         ),
-      );
-    }
-  },
-  builder: (context, state) {
-    if (state is LoginInitial) {
-      return _buildForm(context);
-    } else if (state is LoginLoading) {
-      return const LoadingView();
-    } else if (state is LoginFailure) {
-      return FailureView();
-    }
-    return const SizedBox.shrink();
-  },
-),
-
       ),
     );
   }
 
-  Widget _buildForm(BuildContext context) {
+  Widget buildForm(BuildContext context) {
     final userCtrl = TextEditingController();
     final passCtrl = TextEditingController();
 

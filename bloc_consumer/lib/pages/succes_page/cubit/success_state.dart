@@ -1,14 +1,24 @@
-import 'package:equatable/equatable.dart';
+part of 'success_cubit.dart';
 
-abstract class SuccessState extends Equatable {
-  @override
-  List<Object> get props => [];
-}
+abstract class SuccessState {}
 
 class SuccessInitial extends SuccessState {}
 
 class SuccessLoading extends SuccessState {}
 
-class SuccessLoaded extends SuccessState {}
+class SuccessLoaded extends SuccessState {
+  final String username;
+  final String email;
+  final String phone;
 
-class SuccessError extends SuccessState {}
+  SuccessLoaded({
+    required this.username,
+    required this.email,
+    required this.phone,
+  });
+}
+
+class SuccessError extends SuccessState {
+  final String message;
+  SuccessError(this.message);
+}

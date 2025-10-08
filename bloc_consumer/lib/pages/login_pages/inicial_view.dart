@@ -4,10 +4,11 @@ import 'bloc/login_bloc.dart';
 import 'bloc/login_event.dart';
 import 'bloc/login_state.dart';
 
-import 'widget/loading_view.dart';
-import 'widget/succes_view.dart';
+
 import 'widgets/failure_widget.dart';
 import 'widgets/inicial_widget.dart';
+import 'widgets/loading_widget.dart';
+import 'widgets/succes_widget.dart';
 
 
 class LoginPage extends StatelessWidget {
